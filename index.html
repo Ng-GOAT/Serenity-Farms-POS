@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Serenity POS</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet"
+/>
+
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+<!-- LOGIN SCREEN -->
+
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="brand-title">
+    <img src="logo.png" alt="Logo" class="brand-logo"><h1>Serenity Farms</h1>
+</div>
+
+        <p>
+            Welcome✨
+        </p>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">
+            Login
+        </button>
+
+        <p id="loginError"></p>
+
+    </div>
+
+</div>
+<!-- MAIN APP -->
+
+<div id="app" class="hidden">
+
+    <!-- HERO -->
+
+    <div class="hero-banner">
+
+        <div class="overlay">
+
+            <button class="abc123" onclick="openSettings()">
+⚙
+    </button>
+
+<div class="brand-title">
+    <img src="logo.png" alt="Logo" class="brand-logo"><h1>Serenity Farms</h1>
+</div>
+
+            <p>
+                Family Restaurant
+            </p>
+
+            <span>
+                Pindkepar, Korambhi Road,
+                Bhandara
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div>
+
+            <h2>
+                Waiter Dashboard
+            </h2>
+
+            <h4 id="waiterDisplay"></h4>
+            <p>
+                Order Management System
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+           
+        </div>
+
+    </header>
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+
+        <div class="card">
+
+            <h3>
+                Running Orders
+            </h3>
+
+            <p id="runningOrders">
+                0
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Occupied Tables
+            </h3>
+
+            <p id="occupiedTables">
+                0
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                Available Tables
+            </h3>
+
+            <p id="availableTables">
+                10
+            </p>
+
+        </div>
+
+        <div class="card">
+
+    <h3>Today's Sales</h3>
+
+    <p id="todaySales">
+        ₹0.00
+    </p>
+
+</div>
+
+    </section>
+
+
+    </div>
+
+    <!-- TABLE SECTION -->
+
+    <section>
+
+        <h2 class="section-title">
+
+            Restaurant Tables
+
+        </h2>
+
+        <div
+        id="tableGrid"
+        class="table-grid"
+        >
+
+        </div>
+
+    </section>
+
+    <!-- ORDER PANEL -->
+
+    <section
+    id="orderPanel"
+    class="order-panel hidden"
+    >
+
+<div class="order-header">
+
+    <h2 id="currentTable">
+        Table
+    </h2>
+
+    <button onclick="closeOrderPanel()">
+        Close
+    </button>
+
+</div>
+
+<div class="customer-section">
+
+    <label>
+        Customer Name
+    </label>
+
+    <input
+    type="text"
+    id="customerName"
+    placeholder="Enter Customer Name"
+    />
+
+</div>
+
+        <!-- SEARCH -->
+
+
+        <!-- CATEGORY TABS -->
+
+        <div
+        id="categoryTabs"
+        class="category-tabs"
+        >
+
+        </div>
+    
+        <!-- MENU -->
+
+        <div
+        id="menuCategories"
+        >
+
+        </div> 
+
+        <!-- ORDER SUMMARY -->
+
+        <div id="orderSummary">
+
+            <h3>
+
+                Current Order
+
+            </h3>
+
+            <div
+            id="selectedItems"
+            >
+
+            </div>
+
+            <div class="total">
+
+                Total :
+
+                <span
+                id="grandTotal"
+                >
+                ₹0
+                </span>
+
+            </div>
+
+            <button
+            onclick="saveOrder()"
+            >
+            Save Order
+            </button>
+<button
+onclick="printKOT()"
+style="
+background:#f39c12;
+color:white;
+"
+>
+Print KOT
+</button>
+
+            <button
+            onclick="printBill()"
+            >
+            Print Bill
+            </button>
+
+            <button
+            onclick="closeTable()"
+            >
+            Close Table &
+            Save Bill
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- FLOATING CART -->
+
+<div
+id="floatingCart"
+class="floating-cart"
+onclick="scrollToBill()"
+>
+
+📝
+
+<span id="cartCount">
+
+0
+
+</span>
+
+</div>
+
+<!-- JS FILES -->
+
+<script src="menu.js"></script>
+<script type="module" src="firebase.js"></script>
+
+<script src="script.js"></script>
+
+<div
+id="settingsModal"
+class="settings-modal hidden"
+>
+
+<div class="settings-card">
+
+<h2>⚙️ Settings</h2>
+
+<!--
+<button onclick="openSalesReport()"> Sales Report</button>
+
+-->
+<button onclick="toggleTheme()">
+Theme
+</button>
+
+<button onclick="changePassword()">
+Change Password
+
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+<button class="close-btn" onclick="closeSettings()">
+Close
+</button>
+
+
+</div>
+
+</div>
+
+<div
+id="billingHistoryModal"
+class="settings-modal hidden"
+>
+
+<div
+class="settings-card"
+style="
+width:800px;
+max-height:80vh;
+overflow:auto;
+"
+>
+
+
+
+<div id="salesReportModal" class="settings-modal hidden">
+    <div class="settings-card">
+
+        <h2> Sales Report</h2>
+
+<div class="sales-row" id="reportTodaySales"></div>
+<div class="sales-row" id="reportMonthlySales"></div>
+<div class="sales-row" id="reportBillsGenerated"></div>
+<div class="sales-row" id="reportAverageBill"></div>
+<!----
+       <button class="sales-close-btn"
+onclick="closeSalesReport()">
+    Close
+</button>
+-->
+    </div>
+</div>
+
+</div>
+
+</div>
+<script type="module" src="firebase.js"></script>
+</body>
+</html>
