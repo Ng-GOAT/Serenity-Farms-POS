@@ -1065,7 +1065,7 @@ const MENU = [
     { name: "Mutton Biryani", marathi: "मटण बिर्याणी", price: 350, category: "Rice & Biryani" },
 
     // INDIAN BREADS | इंडियन ब्रेड्स
-    { name: "Plain Roti", marathi: "साधी रोटी", price: 20, category: "Indian Breads" },
+    { name: "Plain Roti", marathi: "साधी रोटी", price: 15, category: "Indian Breads" },
     { name: "Butter Roti", marathi: "साधी बटर रोटी", price: 25, category: "Indian Breads" },
     { name: "Naan", marathi: "नान", price: 40, category: "Indian Breads" },
     { name: "Butter Naan", marathi: "बटर नान", price: 50, category: "Indian Breads" },
@@ -1081,7 +1081,7 @@ const MENU = [
     { name: "Rasgulla", marathi: "रसगुल्ला", price: 70, category: "Desserts" },
 
     // BEVERAGES | पेय पदार्थ
-    { name: "Mineral Water", marathi: "मिनरल वॉटर", price: 25, category: "Beverages" },
+    { name: "Mineral Water", marathi: "मिनरल वॉटर", price: 20, category: "Beverages" },
     { name: "Fresh Lime Soda", marathi: "फ्रेश लाईम सोडा", price: 80, category: "Beverages" },
     { name: "Soda", marathi: "सोडा", price: 70, category: "Beverages" },
     { name: "Sprite / Cold Drink", marathi: "स्प्राइट / कोल्ड ड्रिंक", price: 30, category: "Beverages" },
